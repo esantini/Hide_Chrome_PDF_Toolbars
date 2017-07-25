@@ -1,21 +1,15 @@
 //  Show/Hide PDF Toolbars
-    
-window.toggleToolbars = (function() {
 
-    var toolbar = document.getElementById('toolbar'),
-        zToolbar = document.getElementById('zoom-toolbar');
-    
-    toolbar.style.display = 'none',
-    zToolbar.style.display = 'none';
+window.toggleToolbars = (() => {
 
-    return function() {
-        if(toolbar.style.display) {
-            toolbar.style.display = '';
-            zToolbar.style.display = '';
-        }
-        else {
-            toolbar.style.display = 'none';
-            zToolbar.style.display = 'none';
-        }
-    }
+	const toolbar = document.getElementById("toolbar");
+	const zToolbar = document.getElementById("zoom-toolbar");
+
+	toolbar.style.display = "none",
+	zToolbar.style.display = "none";
+
+	return () => {
+		toolbar.style.display = toolbar.style.display ? "" : "none";
+		zToolbar.style.display = zToolbar.style.display ? "" : "none";
+	};
 })();
